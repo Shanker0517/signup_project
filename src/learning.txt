@@ -1,0 +1,7 @@
+about observable:
+    an observable is an object that represents a stream of data or events which can be observed 
+over time. It's like a pipeline through which multiple values can be emitted asynchronously.
+
+about observer:
+    Observers (or subscribers) are then responsible for listening to this observable stream and
+reacting to the data emitted by it. Observers subscribe to observables to receive notifications when data is available. This subscription triggers the actual execution of the observable's logic (e.g., making the HTTP request).
