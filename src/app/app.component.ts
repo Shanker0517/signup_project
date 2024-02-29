@@ -6,8 +6,6 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgbAlertModule, NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { Userinterface } from './interfaces/userinterface';
 import { HttpClientModule } from '@angular/common/http';
-import { error } from 'console';
-import { response } from 'express';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -35,6 +33,7 @@ export class AppComponent {
     // console.log()
   }
   onSubmit(): void {
+    var r
     // console.log(this.userForm.value)
     if (this.userForm.valid) {
       const userData: Userinterface = this.userForm.value;

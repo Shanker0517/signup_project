@@ -10,7 +10,7 @@ export class UserserviceService {
   apiurl: string = 'http://127.0.0.1:8000/'
   constructor(private http: HttpClient) { }
 
-  addUser(userData: Userinterface) {
+  addUser(userData: Userinterface): Observable<any> {
     const [year,month,day]=Object.values(userData.dateofbirth)
     Object.assign(userData,{'dateofbirth':`${year}-${month}-${day}`})
     console.log(userData)

@@ -1,6 +1,7 @@
 .display {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    scroll-behavior: auto;
 }
 
 .container1 {
@@ -32,9 +33,6 @@
 input{
     height: 35px;
     width: 500px;
-    /* margin-bottom: 5px; */
-}
-label{
     /* margin-bottom: 5px; */
 }
 .datepicker{
