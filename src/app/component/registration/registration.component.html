@@ -1,0 +1,252 @@
+<div class="display">
+    <div class="container1">
+      <div class="child"></div>
+    </div>
+    <div class="container2">
+      <div class="child">
+        <form class="FormDisplay" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+          <div>
+            <label for="username">username</label>
+            <input
+              name="username"
+              class="form-control"
+              type="text"
+              formControlName="username"
+            />
+            <div
+              *ngIf="
+                userForm.get('username')?.invalid &&
+                userForm.get('username')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('username')?.errors?.['required']"
+                style="color: red"
+              >
+                username is required
+              </span>
+            </div>
+          </div>
+          <div>
+            <label for="address">address</label>
+            <input
+              name="address"
+              class="form-control"
+              type="text"
+              formControlName="address"
+            />
+            <div
+              *ngIf="
+                userForm.get('address')?.invalid &&
+                userForm.get('address')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('address')?.errors?.['required']"
+                style="color: red"
+                >address is required</span>
+                <span
+              *ngIf="userForm.get('address')?.getError('address_error')"
+              style="color: red"
+            >
+              {{ userForm.get("address")?.getError("address_error") }}
+            </span>
+            </div>
+          </div>
+          <div>
+            <label for="city">city</label>
+            <input
+              name="city"
+              class="form-control"
+              type="text"
+              formControlName="city"
+            />
+            <div
+              *ngIf="
+                userForm.get('city')?.invalid &&
+                userForm.get('city')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('city')?.errors?.['required']"
+                style="color: red"
+                >city name is required</span
+              >
+              <span
+              *ngIf="userForm.get('city')?.getError('city_error')"
+              style="color: red"
+            >
+              {{ userForm.get("city")?.getError("city_error") }}
+            </span>
+            </div>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input
+              name="email"
+              class="form-control"
+              type="email"
+              formControlName="email"
+            />
+            <div
+              *ngIf="
+                userForm.get('email')?.invalid && userForm.get('email')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('email')?.errors?.['required']"
+                style="color: red"
+                >email required</span
+              >
+              <span
+                *ngIf="userForm.get('email')?.errors?.['email']"
+                style="color: red"
+                >email required</span
+              >
+              <span
+              *ngIf="userForm.get('email')?.getError('email_error')"
+              style="color: red"
+            >
+              {{ userForm.get("email")?.getError("email_error") }}
+            </span>
+            </div>
+          </div>
+          <div>
+            <label for="dateofbirth">Date of Birth</label>
+            <div class="datepicker">
+              <input
+                class="form-control"
+                placeholder="yyyy-mm-dd"
+                name="dateofbirth"
+                ngbDatepicker
+                #d="ngbDatepicker"
+                formControlName="dateofbirth"
+              />
+              <button
+                class="btn btn-outline-secondary bi bi-calendar3 dateinput"
+                (click)="d.toggle()"
+                type="button"
+              >
+                Date
+              </button>
+            </div>
+            <div
+              *ngIf="
+                userForm.get('dateofbirth')?.invalid &&
+                userForm.get('dateofbirth')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('dateofbirth')?.errors?.['required']"
+                style="color: red"
+                >Date of Birth required</span
+              >
+              <span
+                *ngIf="userForm.get('dateofbirth')?.getError('dateofbirth_error')"
+                style="color: red"
+              >
+                {{ userForm.get("dateofbirth")?.getError("dateofbirth_error") }}
+              </span>
+            </div>
+          </div>
+          <div>
+            <label for="phoneno">Phone Number</label>
+            <input
+              name="phoneno"
+              class="form-control"
+              formControlName="phoneno"
+            />
+            <div
+              *ngIf="
+                userForm.get('phoneno')?.invalid &&
+                userForm.get('phoneno')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('phoneno')?.errors?.['required']"
+                style="color: red"
+              >
+                phone Number required
+              </span>
+              <span
+                *ngIf="userForm.get('phoneno')?.getError('phnoerror')"
+                style="color: red"
+              >
+                {{ userForm.get("phoneno")?.getError("phoneno_error") }}
+              </span>
+            </div>
+          </div>
+          <div>
+            <label for="pincode">pincode</label>
+            <input
+              name="pincode"
+              class="form-control"
+              type="number"
+              autocomplete="false"
+              formControlName="pincode"
+            />
+            <div
+              *ngIf="
+                userForm.get('pincode')?.invalid &&
+                userForm.get('pincode')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('pincode')?.errors?.['required']"
+                style="color: red"
+              >
+                pincode Number required
+              </span>
+            </div>
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input
+              name="password"
+              class="form-control"
+              type="password"
+              autocomplete="false"
+              formControlName="password"
+            />
+            <div
+              *ngIf="
+                userForm.get('password')?.invalid &&
+                userForm.get('password')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('password')?.errors?.['required']"
+                style="color: red"
+              >
+                password Number required
+              </span>
+            </div>
+          </div>
+          <div>
+            <label for="conformPassword">conform-Password</label>
+            <input
+              class="form-control"
+              type="conformPassword"
+              autocomplete="false"
+              formControlName="conformPassword"
+            />
+            <div
+              *ngIf="
+                userForm.get('conformPassword')?.invalid &&
+                userForm.get('conformPassword')?.touched
+              "
+            >
+              <span
+                *ngIf="userForm.get('conformPassword')?.errors?.['required']"
+                style="color: red"
+              >
+                conformPassword Number required
+              </span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

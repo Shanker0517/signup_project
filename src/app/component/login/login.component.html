@@ -1,0 +1,61 @@
+<div class="display">
+  <div class="container1">
+    <div class="child"></div>
+  </div>
+  <div class="container2">
+    <div class="child">
+      <form class="FormDisplay" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="email">email</label>
+          <input
+            name="email"
+            class="form-control"
+            type="text"
+            formControlName="email"
+          />
+          <div
+            *ngIf="
+              loginForm.get('email')?.invalid &&
+              loginForm.get('email')?.touched
+            "
+          >
+            <span
+              *ngIf="loginForm.get('email')?.errors?.['required']"
+              style="color: red"
+            >
+              email is required
+            </span>
+          </div>
+        </div>
+        <div>
+          <label for="password">password</label>
+          <input
+            name="password"
+            class="form-control"
+            type="text"
+            formControlName="password"
+          />
+          <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+            "
+          >
+            <span
+              *ngIf="loginForm.get('password')?.errors?.['required']"
+              style="color: red"
+              >address is required</span
+            >
+            <span
+              *ngIf="loginForm.get('password')?.getError('password_error')"
+              style="color: red"
+            >
+              {{ loginForm.get("password")?.getError("password_error") }}
+            </span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
